@@ -1,1 +1,1 @@
-# portfolio
+O portfolio esta sendp criado de acordo com oque foi pedido em sala de aula, do Professor Otavio Lube. Se há alguma coisa de fora que foi solicitada em aula, que seja dito após a visualização do trabalho que esta de repositorio. Os contatos estarão no proprio projeto na aba de contatos ou rede social. Desde ja, agradeço.
