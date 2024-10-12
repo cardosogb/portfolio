@@ -22,12 +22,18 @@ header {
 .profile-pic {
     width: 100px;
     height: 100px;
-    background-color: #7BAFD4;
     border-radius: 50%;
     border: 2px solid black;
     position: absolute;
-    top: 30px; /* Subi a imagem para 30px */
-    animation: rotate 5s linear infinite;
+    top: 30px;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 h1 {
@@ -37,51 +43,74 @@ h1 {
     text-transform: uppercase;
 }
 
-section.info {
+/* Estilo das abas */
+.tabs {
+    margin-top: 10px;
     display: flex;
-    justify-content: space-around;
-    margin-top: 0;
-    padding-top: 10px;
+    justify-content: center; /* Alinha as abas no centro */
+    flex-wrap: wrap; /* Permite que as abas quebrem linha em telas pequenas */
 }
 
-.info-box {
-    width: 30%;
-    text-align: center;
-    padding: 20px;
+.tabs input[type="radio"] {
+    display: none; /* Esconde os inputs radio */
+}
+
+.tab-button {
+    display: inline-block;
+    padding: 10px 30px; /* Mantém os botões retangulares */
+    margin: 5px;
     background-color: #ADD8E6;
     color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    font-size: 18px;
+    border-radius: 5px; /* Bordas suaves */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
 }
 
-.info-box:hover {
+.tab-button:hover {
     background-color: #7BAFD4;
 }
 
-.info-box h2 {
-    font-size: 18px;
-    text-transform: uppercase;
+/* Estilo do botão ativo */
+input[type="radio"]:checked + .tab-button {
+    background-color: #5599A6;
+    border: 2px solid #5599A6; /* Adiciona borda ao botão ativo */
 }
 
-/* Seções de conteúdo */
-section {
-    padding: 50px;
-    margin: 20px 0;
+/* Conteúdo de cada aba */
+.tab-content {
+    display: none;
+    padding: 20px;
+    margin-top: 10px;
+    width: 80%;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+
+    /* Animação inicial */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-section h2 {
-    margin-bottom: 10px;
-    font-size: 22px;
+/* Exibe o conteúdo correspondente à aba ativa com animação */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3 {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Retorna ao seu lugar suavemente */
 }
 
-/* Animação da imagem de perfil */
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
+/* Animação de flutuação da imagem de perfil */
+@keyframes float {
+    0% {
+        transform: translateY(0);
     }
-    to {
-        transform: rotate(360deg);
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
