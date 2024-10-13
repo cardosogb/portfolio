@@ -85,21 +85,93 @@ input[type="radio"]:checked + .tab-button {
     width: 80%;
     text-align: center;
     border: 1px solid #ccc;
-    background-color: #f5f5f5;
+    background-color: #ADD8E6; /* Cor de fundo combinando com o header */
+    color: white; /* Cor do texto branca para contraste */
+    border-radius: 10px;
 
-    /* Animação inicial */
+    /* Animação inicial (opacidade e cor) */
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.6s ease;
 }
 
-/* Exibe o conteúdo correspondente à aba ativa com animação */
+/* Exibe o conteúdo correspondente à aba ativa com fade-in */
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3 {
     display: block;
     opacity: 1;
     transform: translateY(0); /* Retorna ao seu lugar suavemente */
+}
+
+/* Estilo dos links sociais */
+.social-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-links li {
+    margin: 10px 0;
+}
+
+/* Estilo dos botões de redes sociais */
+.social-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.github {
+    background-color: #333;
+}
+
+.github:hover {
+    background-color: #555;
+}
+
+.instagram {
+    background-color: #E4405F;
+}
+
+.instagram:hover {
+    background-color: #FF6F91;
+}
+
+.linkedin {
+    background-color: #0077B5;
+}
+
+.linkedin:hover {
+    background-color: #0A66C2;
+}
+
+/* Estilo dos botões em "Feitos e Curiosidades" */
+.feitos-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.feitos-links li {
+    margin: 10px 0;
+}
+
+.feito-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.feito-btn:hover {
+    background-color: #333;
 }
 
 /* Animação de flutuação da imagem de perfil */
